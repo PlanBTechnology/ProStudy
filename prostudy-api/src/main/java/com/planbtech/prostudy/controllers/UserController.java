@@ -4,6 +4,7 @@ import com.planbtech.prostudy.DTO.ProjectDTO.ProjectAddDTO;
 import com.planbtech.prostudy.DTO.ProjectDTO.ProjectToSendDTO;
 import com.planbtech.prostudy.DTO.SkillTestDTO.TestCompleteDTO;
 import com.planbtech.prostudy.DTO.UserDTO.UserLoadDTO;
+import com.planbtech.prostudy.component.Exception.ClassException.UserException.UserNotFound;
 import com.planbtech.prostudy.services.interfaces.IUserServices;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -43,6 +44,9 @@ public class UserController {
         try {
             iUserServices.completeTest(testCompleteDTO);
             return ResponseEntity.ok().body(HttpStatus.OK);
+        }
+        catch (UserNotFound ex){
+            return ResponseEntity.badRequest().body(HttpStatus.NOT_FOUND);
         }
         catch (Exception e){
             return ResponseEntity.badRequest().body(HttpStatus.INTERNAL_SERVER_ERROR);

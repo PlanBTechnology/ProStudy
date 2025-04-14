@@ -58,7 +58,7 @@ public class ProjectController {
     }
 
     @Operation(summary = "Retorna um lista de projetos", description = "Retorna um lista de projetos com informações minímas ao buscar projetos vinculados ao usuário")
-    @GetMapping("/finda/user/{userName}")
+    @GetMapping("/find/user/{userName}")
     public ResponseEntity<List<ProjectMinViewDTO>> findUserProject(@PathVariable String userName){
         try
         {

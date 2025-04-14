@@ -22,19 +22,19 @@ public class CategoryController {
     private ICategoryServices categoryServices;
 
     @Operation(summary = "Retorna uma lista de categoria de todas as categorias", description = "Retorna um lista de categorias que contém uma lista de videos vinculada a categoria")
-    @GetMapping("/video/allcategory")
+    @GetMapping("/list/videos")
     public ResponseEntity<List<CategoryVideoDTO>> listCategoryVideos() {
         return ResponseEntity.ok(categoryServices.findAllVideo());
     }
 
     @Operation(summary = "Retorna uma lista de categoria de todas as categorias", description = "Retorna um lista de categorias que contém uma lista de testes vinculada a categoria")
-    @GetMapping("/test/allcategory")
+    @GetMapping("/list/tests")
     public ResponseEntity<List<CategoryTestDTO>> listCategoryTests(){
         return ResponseEntity.ok(categoryServices.findAllTest());
     }
 
     @Operation(summary = "Retorna uma lista de categoria de todas as categorias", description = "Retorna um lista de categorias que contém uma lista de tools vinculada a categoria")
-    @GetMapping("tools/alltools")
+    @GetMapping("list")
     public ResponseEntity<List<CategoryMinDTO>> toolsList(){
         try
         {

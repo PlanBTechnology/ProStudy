@@ -109,7 +109,7 @@ public class UserServices implements IUserServices {
         .orElseThrow(() -> new UserNotFound("User not found in complete test"));
 
     userToComplete.getSkillTests().add(testRepository.findById(testCompleteDTO
-        .getTestId()).orElseThrow());
+        .getTestId()).orElseThrow(RuntimeException::new));
     userRepository.save(userToComplete);
   }
 
@@ -117,7 +117,7 @@ public class UserServices implements IUserServices {
   @Override
   public UserLoadDTO loadUser(String userName) {
 
-    User user = userRepository.findByUserName(userName).orElseThrow();
+    User user = userRepository.findByUserName(userName).orElseThrow(() -> new UserNotFound(String.format("User %s not found", userName)));
 
     return new UserLoadDTO(user);
   }
