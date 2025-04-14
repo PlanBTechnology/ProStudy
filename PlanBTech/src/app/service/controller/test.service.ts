@@ -22,7 +22,7 @@ export class TestService {
   }
 
   categoryList(): Observable<Category[]> {
-        const url = `${this.apiUrl}/category/test/allcategory`;
+        const url = `${this.apiUrl}/category/list/tests`;
         return this.http.get<Category[]>(url);
       }
     ;

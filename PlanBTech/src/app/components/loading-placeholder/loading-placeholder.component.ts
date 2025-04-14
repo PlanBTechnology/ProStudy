@@ -10,7 +10,3 @@ export class LoadingPlaceholderComponent {
   listOfItens1 = [1, 2, 3, 4];
   listOfCategory= [this.listOfItens1,this.listOfItens1]
 }
-
-class itemPlaceholder{
-
-}

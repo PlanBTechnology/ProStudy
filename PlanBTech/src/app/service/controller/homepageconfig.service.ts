@@ -16,7 +16,7 @@ export class HomepageConfigService {
 
   categoryList(): Observable<Category[]> {
 
-        const url = `${this.apiUrl}category/video/allcategory`;
+        const url = `${this.apiUrl}category/list/videos`;
 
         return this.http.get<Category[]>(url);
       }
